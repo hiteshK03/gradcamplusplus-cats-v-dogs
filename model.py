@@ -23,7 +23,7 @@ for layer in pre_trained_model.layers:
     layer.trainable = False
   
 # Print the model summary
-# pre_trained_model.summary()
+pre_trained_model.summary()
 
 last_layer = pre_trained_model.get_layer('mixed7')
 print('last layer output shape: ', last_layer.output_shape)
@@ -36,8 +36,8 @@ x = layers.Dense(1,activation='sigmoid')(x)
 
 model = Model(pre_trained_model.input, x) 
 
-model.compile(optimizer = RMSprop(lr=0.0001), 
+model.compile(optimizer = RMSprop(lr=0.01), 
               loss = 'binary_crossentropy', 
               metrics = ['accuracy'])
 
-# model.summary()
+model.summary()

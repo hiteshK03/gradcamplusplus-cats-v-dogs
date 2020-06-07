@@ -1,17 +1,28 @@
+# Usage: python3 apply_gradcam.py -i ./dog.jpg -m my_model.h5
+
 import os
 import numpy as np
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
+from tf.keras.models import load_model
+import matplotlib.pyplot as plt
 from gradcam_utils import grad_cam, grad_cam_plus
+import argparse
 
-path = "/content/preds/"
-img = "test/55.jpg"
-image_path = os.path.join(path, img)
-orig_image = load_img(image_path, target_size=(150, 150))
+ap = argparse.ArgumentParser()
+ap.add_argument("-m", "--model", type=str, required=True
+	help = "Model to be used")
+ap.add_argument("-i", "--image_path", type=str, required=True, 
+	help = "Path of the image")
+args = vars(ap.parse_args())
+
+img = args['image_path']
+orig_image = load_img(img, target_size=(150, 150))
 image = img_to_array(orig_image)
 image = np.expand_dims(image, axis=0)
 image = image/255.0
 
+model = load_model(args['model'])
 # Apply gradcam & gradcam++ visualisations
 gradcam=grad_cam(model,image,layer_name='mixed7')
 gradcamplus=grad_cam_plus(model,image,layer_name='mixed7')
