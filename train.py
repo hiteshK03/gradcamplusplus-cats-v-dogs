@@ -37,6 +37,7 @@ plt.legend(loc=0)
 plt.figure()
 plt.show()
 
+model.save('my_model.h5')
 
 pred=model.predict(test_generator,verbose=1)
 cl=np.round(pred)
