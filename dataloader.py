@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-TRAINING_DIR = "../cats-v-dogs/train/"
+TRAINING_DIR = "./cats-v-dogs/train/"
 train_datagen = ImageDataGenerator(
       rescale=1./255,
       rotation_range=40,
@@ -18,7 +18,7 @@ train_generator = train_datagen.flow_from_directory(
         target_size=(150, 150),
         class_mode='binary')
 
-VALIDATION_DIR = "../cats-v-dogs/validation/"
+VALIDATION_DIR = "./cats-v-dogs/validation/"
 validation_datagen = ImageDataGenerator(rescale=1./255)
 
 # VALIDATION GENERATOR.
@@ -28,7 +28,7 @@ validation_generator = validation_datagen.flow_from_directory(
         batch_size=10,
         class_mode='binary')
 
-TEST_DIR = "../cats-v-dogs/testing/"
+TEST_DIR = "./cats-v-dogs/testing/"
 test_datagen = ImageDataGenerator(rescale=1./255)
 
 # TEST GENERATOR.
