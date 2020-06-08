@@ -2,15 +2,16 @@
 
 import os
 import numpy as np
+import tensorflow as tf
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.preprocessing.image import load_img
-from tf.keras.models import load_model
+from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
 from gradcam_utils import grad_cam, grad_cam_plus
 import argparse
 
 ap = argparse.ArgumentParser()
-ap.add_argument("-m", "--model", type=str, required=True
+ap.add_argument("-m", "--model", type=str, required=True,
 	help = "Model to be used")
 ap.add_argument("-i", "--image_path", type=str, required=True, 
 	help = "Path of the image")
@@ -45,10 +46,10 @@ plt.imshow(orig_image)
 plt.title("input image")
 plt.subplot(132)
 plt.imshow(orig_image)
-plt.imshow(gradcam,alpha=0.8,cmap="jet")
+plt.imshow(gradcam,alpha=0.7,cmap="jet")
 plt.title("Grad-CAM")
 plt.subplot(133)
 plt.imshow(orig_image)
-plt.imshow(gradcamplus,alpha=0.8,cmap="jet")
+plt.imshow(gradcamplus,alpha=0.7,cmap="jet")
 plt.title("Grad-CAM++")
 plt.show()
