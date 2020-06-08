@@ -28,8 +28,7 @@ Some of the important dependencies required are:
 
 ## Dataset
 
-The original dataset can be downloaded from the [kaggle competitions page](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data).
-
+The original dataset can be downloaded from the [kaggle competitions page](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data).  
 After downloading it can be extracted at the current directory (same as that of the zip file downloaded above) by running:
 ```
 python3 create_data.py
@@ -50,8 +49,7 @@ The structure of the working directory is shown below:
 ├── dogs-vs-cats-redux-kernels-edition.zip
 └── sample_submission.csv
 ```
-(or) For using with Google Colab the you can simply use the zipped working directory from [here](https://drive.google.com/file/d/1--Ejrtj8WyFQg_2Al_rPuaXAnrQgX-6w/view?usp=sharing)
-
+(or) For using with Google Colab the you can simply use the zipped working directory from [here](https://drive.google.com/file/d/1--Ejrtj8WyFQg_2Al_rPuaXAnrQgX-6w/view?usp=sharing)  
 For using this data, refer [jupyter notebook](dogs_vs_cats_gradcam.ipynb)
 
 ## Usage
@@ -59,8 +57,8 @@ For using this data, refer [jupyter notebook](dogs_vs_cats_gradcam.ipynb)
 For directly viewing the GradCam visualisations with the already pretrained model (can be downloaded from this [link](https://drive.google.com/file/d/1QfJpZOeaHuutEEdC6cyAQdxQGl65_PUh/view?usp=sharing)),
 simply run ```python3 apply_gradcam.py -i <input-image-path> -m <pre-trained-model>```
 
-To train and test the model, simply run ```python3 train.py```.
-Once trained, you can view the gradcam visualisations with your trained model by running ```python3 apply_gradcam.py -i <input-image-path>```
+To train and test the model, simply run ```python3 train.py```.  
+Once trained, you can view the gradcam visualisations with your trained model by running ```python3 apply_gradcam.py -i <input-image-path> -m <saved-model>```
 
 (or) Simply run the [jupyter notebook](dogs_vs_cats_gradcam.ipynb) file in google colab.
 
